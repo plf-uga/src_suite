@@ -57,7 +57,7 @@ export_leg_data = function(working_directory, steps, timezone, outname, sep, kee
     start = 1
     end = steps
     iteration = 1
-    while(end < nrow(activity_temp))
+    while(end <= nrow(activity_temp))
     {
       tryCatch({
       for (i in 1:nrow(animals))
@@ -104,7 +104,7 @@ export_leg_data = function(working_directory, steps, timezone, outname, sep, kee
         next
       })
       start = end+1
-      end = min(end+steps, nrow(activity_temp))
+      end = min(end+steps, nrow(activity_temp)+1)
       iteration <- iteration + 1
     }
     print(paste("Day:", current_date, " done ..."))
